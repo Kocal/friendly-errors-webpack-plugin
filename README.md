@@ -16,7 +16,7 @@ errors get handled, please open a [PR](https://help.github.com/articles/creating
 ### Installation
 
 ```bash
-npm install @nuxtjs/friendly-errors-webpack-plugin --save-dev
+npm install @nuxt/friendly-errors-webpack-plugin --save-dev
 ```
 
 ### Basic usage
@@ -24,7 +24,7 @@ npm install @nuxtjs/friendly-errors-webpack-plugin --save-dev
 Simply add `FriendlyErrorsWebpackPlugin` to the plugin section in your Webpack config.
 
 ```javascript
-var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+var FriendlyErrorsWebpackPlugin = require('@nuxt/friendly-errors-webpack-plugin');
 
 var webpackConfig = {
   // ...
