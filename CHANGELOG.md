@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.6.0"></a>
+# [2.6.0](https://github.com/nuxt/friendly-errors-webpack-plugin/compare/v2.5.2...v2.6.0) (2023-11-23)
+
+
+### Bug Fixes
+
+* bump consola dep to 3.x to align with other nuxt 2 packages ([#16](https://github.com/nuxt/friendly-errors-webpack-plugin/issues/16)) ([078d629](https://github.com/nuxt/friendly-errors-webpack-plugin/commit/078d629))
+* **doc:** update package name in readme sample ([#12](https://github.com/nuxt/friendly-errors-webpack-plugin/issues/12)) ([6cf5fbe](https://github.com/nuxt/friendly-errors-webpack-plugin/commit/6cf5fbe))
+
+
+
 <a name="2.5.2"></a>
 ## [2.5.2](https://github.com/nuxt/friendly-errors-webpack-plugin/compare/v2.5.1...v2.5.2) (2021-10-14)
 
