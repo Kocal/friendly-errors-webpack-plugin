@@ -1,6 +1,6 @@
 'use strict'
 
-const chalk = require('chalk')
+const pc = require('picocolors')
 
 const colors = {
   success: 'green',
@@ -32,11 +32,11 @@ function capitalizeFirstLetter (string) {
 }
 
 function formatTitle (severity, title) {
-  return chalk[bgColor(severity)].black('', title, '')
+  return pc[bgColor(severity)](pc.black(` ${title} `))
 }
 
 function formatText (severity, message) {
-  return chalk[textColor(severity)](message)
+  return pc[textColor(severity)](message)
 }
 
 function clearConsole () {

@@ -1,7 +1,7 @@
 'use strict'
 
 const { colors, formatTitle, formatText, clearConsole } = require('../utils/log')
-const chalk = require('chalk')
+const pc = require('picocolors')
 const stringWidth = require('string-width')
 
 class BaseReporter {
@@ -45,7 +45,7 @@ class BaseReporter {
   appendTimestamp (title, message) {
     // Make timestamp appear at the end of the line
     const line = `${title} ${message}`
-    const dateString = chalk.grey(new Date().toLocaleTimeString())
+    const dateString = pc.gray(new Date().toLocaleTimeString())
     let logSpace = process.stdout.columns - stringWidth(line) - stringWidth(dateString)
     if (logSpace <= 0) {
       logSpace = 10
