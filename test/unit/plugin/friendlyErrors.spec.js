@@ -104,10 +104,12 @@ function successfulCompilationStats (opts) {
   const compilation = {
     errors: [],
     warnings: [],
-    children: []
+    children: [],
+    getWarnings: () => [],
+    getErrors: () => [],
+    startTime: options.startTime,
+    endTime: options.endTime
   }
   const stats = new Stats(compilation)
-  stats.startTime = options.startTime
-  stats.endTime = options.endTime
   return stats
 }

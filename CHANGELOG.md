@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/kocal/friendly-errors-webpack-plugin/compare/v2.6.0...v3.0.0) (2026-03-10)
+
+### BREAKING CHANGES
+
+* **Node.js**: Minimum required version is now `^22.13.0 || >=24.0.0`
+* **Webpack**: Only Webpack 5 is supported (`^5.0.0`). Dropped support for Webpack 2, 3, and 4.
+
+
 <a name="2.6.0"></a>
 # [2.6.0](https://github.com/nuxt/friendly-errors-webpack-plugin/compare/v2.5.2...v2.6.0) (2023-11-23)
 
