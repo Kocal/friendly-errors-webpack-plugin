@@ -2,8 +2,8 @@ const { stripVTControlCharacters } = require('node:util')
 
 module.exports = {
   captureReports: async (output, callback) => {
-    output.log = jest.fn()
-    output.clearConsole = jest.fn()
+    output.log = vi.fn()
+    output.clearConsole = vi.fn()
     const logs = []
 
     await callback()
