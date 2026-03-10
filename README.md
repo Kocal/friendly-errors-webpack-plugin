@@ -45,7 +45,7 @@ You need to turn off all error logging by setting your webpack config quiet opti
 ```javascript
 app.use(require('webpack-dev-middleware')(compiler, {
   // ...
-  logLevel: 'SILENT',
+  logLevel: 'silent',
   // ...
 }));
 ```
@@ -58,7 +58,9 @@ If you use the webpack-dev-server, there is a setting in webpack's ```devServer`
   // ...
   devServer: {
     // ...
-    quiet: true,
+    client: {
+      logging: 'none',
+    },
     // ...
   },
   // ...
@@ -81,7 +83,7 @@ _Thanks to [webpack-dashboard](https://github.com/FormidableLabs/webpack-dashboa
 
 ![success](http://i.imgur.com/MkUEhYz.gif)
 
-### eslint-loader errors
+### eslint-webpack-plugin errors
 
 ![lint](http://i.imgur.com/xYRkldr.gif)
 
@@ -115,7 +117,7 @@ new FriendlyErrorsPlugin({
   // WARNING: warnings and errors
   // ERROR:   only errors
   // SILENT:  no log
-  logLevel: true,
+  logLevel: 'INFO',
 
   // base: default
   // consola: consola adapter
@@ -134,11 +136,11 @@ The plugin has no native support for desktop notifications but it is easy
 to add them thanks to [node-notifier](https://www.npmjs.com/package/node-notifier) for instance.
 
 ```js
-var NotifierPlugin = require('@kocal/friendly-errors-webpack-plugin');
+var FriendlyErrorsWebpackPlugin = require('@kocal/friendly-errors-webpack-plugin');
 var notifier = require('node-notifier');
 var ICON = path.join(__dirname, 'icon.png');
 
-new NotifierPlugin({
+new FriendlyErrorsWebpackPlugin({
     onErrors: (severity, errors) => {
       if (severity !== 'error') {
         return;
