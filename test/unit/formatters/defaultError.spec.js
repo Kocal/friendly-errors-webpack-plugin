@@ -1,7 +1,13 @@
 const defaultError = require('../../../src/formatters/defaultError')
 const expect = require('expect')
-const stripAnsi = require('strip-ansi')
+const { stripVTControlCharacters } = require('node:util')
 
+const stripAnsi = (item) => {
+  if (Array.isArray(item)) {
+    return item.map(stripAnsi)
+  }
+  return stripVTControlCharacters(item)
+}
 const noColor = (arr) => arr.map(stripAnsi)
 const error = { message: 'Error message', file: './src/index.js' }
 

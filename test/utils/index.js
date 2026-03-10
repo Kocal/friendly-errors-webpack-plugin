@@ -1,4 +1,4 @@
-const stripAnsi = require('strip-ansi')
+const { stripVTControlCharacters } = require('node:util')
 
 module.exports = {
   captureReports: async (output, callback) => {
@@ -9,7 +9,7 @@ module.exports = {
     await callback()
 
     for (const args of output.log.mock.calls) {
-      logs.push(stripAnsi(args.join(' ')).trim())
+      logs.push(stripVTControlCharacters(args.join(' ')).trim())
     }
     return logs
   }
