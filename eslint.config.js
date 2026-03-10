@@ -9,7 +9,14 @@ module.exports = [
       sourceType: "commonjs",
       globals: {
         ...globals.node,
-        ...globals.jest,
+      },
+    },
+  },
+  {
+    files: ["test/**/*.spec.js", "test/utils/**/*.js"],
+    languageOptions: {
+      globals: {
+        ...globals.vitest,
       },
     },
   },

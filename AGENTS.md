@@ -6,7 +6,7 @@ This document provides guidelines for AI coding agents working on the `@kocal/fr
 
 A Webpack 5 plugin that recognizes certain classes of webpack errors and cleans, aggregates, and prioritizes them to provide a better Developer Experience. This is a maintained fork of `@nuxt/friendly-errors-webpack-plugin`.
 
-**Stack:** JavaScript (CommonJS), Node.js ^22.13.0 || >=24.0.0, pnpm 10.32.0, Jest 29
+**Stack:** JavaScript (CommonJS), Node.js ^22.13.0 || >=24.0.0, pnpm 10.32.0, Vitest 4
 
 ## Project Structure
 
@@ -37,25 +37,26 @@ friendly-errors-webpack-plugin/
 |---------|-------------|
 | `pnpm lint` | Run ESLint on all files |
 | `pnpm lint:fix` | Run ESLint with auto-fix |
-| `pnpm test` | Run ESLint + Jest tests |
+| `pnpm test` | Run ESLint + Vitest tests |
 
 ### Running a Single Test
 
 ```bash
 # Run a single test file
-pnpm exec jest test/unit/transformers/babelSyntax.spec.js
+pnpm exec vitest run test/unit/transformers/babelSyntax.spec.js
 
 # Run tests matching a file path pattern
-pnpm exec jest --testPathPattern="moduleNotFound"
+pnpm exec vitest run --testPathPattern="moduleNotFound"
 
 # Run a specific test by name/description
-pnpm exec jest -t "Sets severity to 1000"
+pnpm exec vitest run -t "Sets severity to 1000"
 
 # Run with verbose output
-pnpm exec jest --verbose test/unit/formatters/defaultError.spec.js
-```
+pnpm exec vitest run test/unit/formatters/defaultError.spec.js
 
-**Note:** Tests require `NODE_OPTIONS=--experimental-vm-modules` which is automatically set via cross-env in the npm script.
+# Run in watch mode
+pnpm exec vitest
+```
 
 ## Code Style Guidelines
 
@@ -149,13 +150,10 @@ module.exports.isTargetType = isTargetType
 ### Testing Patterns
 
 - Test files use `.spec.js` suffix
-- Tests use Jest globals (`it`, `describe`)
-- Use `expect` from the `expect` package (v1.20.2)
+- Tests use Vitest globals (`it`, `describe`, `expect`, `vi`, `beforeEach`)
 - Integration tests use in-memory filesystem (`memfs`)
 
 ```javascript
-const expect = require('expect')
-
 describe('FeatureName', () => {
   it('should do something specific', () => {
     const result = functionUnderTest(input)
@@ -174,7 +172,7 @@ describe('FeatureName', () => {
 
 Uses ESLint v9 flat config:
 - ECMAScript 2022, CommonJS sourceType
-- Node.js and Jest globals enabled
+- Node.js and Vitest globals enabled
 - Ignores: `test/fixtures/**`, `_sandbox/**`
 
 Run `pnpm lint:fix` before committing to auto-fix issues.
@@ -183,7 +181,7 @@ Run `pnpm lint:fix` before committing to auto-fix issues.
 
 **Runtime:** `consola`, `error-stack-parser`, `picocolors`, `string-width`
 **Peer:** `webpack ^5.0.0`
-**Dev:** `jest`, `eslint`, `memfs`
+**Dev:** `vitest`, `eslint`, `memfs`
 
 ## CI/CD
 

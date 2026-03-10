@@ -1,4 +1,3 @@
-const expect = require('expect')
 const EventEmitter = require('events')
 const Stats = require('webpack/lib/Stats')
 const MultiStats = require('webpack/lib/MultiStats')

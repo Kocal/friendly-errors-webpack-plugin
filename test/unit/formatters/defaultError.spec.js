@@ -1,5 +1,4 @@
 const defaultError = require('../../../src/formatters/defaultError')
-const expect = require('expect')
 const { stripVTControlCharacters } = require('node:util')
 
 const stripAnsi = (item) => {
