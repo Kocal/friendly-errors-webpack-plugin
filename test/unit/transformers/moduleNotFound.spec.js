@@ -1,12 +1,10 @@
 const moduleNotFound = require('../../../src/transformers/moduleNotFound')
-const RequireContextDependency = require('webpack/lib/dependencies/RequireContextDependency')
 
+// Webpack 5 format: module name is extracted from the message
 const error = {
   name: 'ModuleNotFoundError',
-  message: 'Module not found : redux',
-  webpackError: {
-    dependencies: [{ request: 'redux' }]
-  }
+  message: "Module not found: Error: Can't resolve 'redux' in '/path/to/project'",
+  webpackError: {}
 }
 
 it('Sets severity to 900', () => {
@@ -17,16 +15,16 @@ it('Sets module name', () => {
   expect(moduleNotFound(error).module).toEqual('redux')
 })
 
-it('Sets the appropiate message', () => {
+it('Sets the appropriate message', () => {
   const message = 'Module not found redux'
   expect(moduleNotFound(error).message).toEqual(message)
 })
 
-it('Sets the appropiate type', () => {
+it('Sets the appropriate type', () => {
   expect(moduleNotFound({
     name: 'ModuleNotFoundError',
-    message: 'Module not found',
-    webpackError: error.webpackError
+    message: "Module not found: Error: Can't resolve 'lodash'",
+    webpackError: {}
   }).type).toEqual('module-not-found')
 })
 
@@ -35,14 +33,12 @@ it('Ignores other errors', () => {
   expect(moduleNotFound(error)).toEqual(error)
 })
 
-it('Sets the correct message with a RequireContextDependency', () => {
-  const message = 'Module not found redux'
-
-  expect(moduleNotFound({
+it('Handles scoped packages correctly', () => {
+  const scopedError = {
     name: 'ModuleNotFoundError',
-    message: 'Module not found : redux',
-    webpackError: {
-      dependencies: [ new RequireContextDependency({ request: 'redux', regExp: {} }) ]
-    }
-  }).message).toEqual(message)
+    message: "Module not found: Error: Can't resolve '@scope/package' in '/path/to/project'",
+    webpackError: {}
+  }
+  expect(moduleNotFound(scopedError).module).toEqual('@scope/package')
+  expect(moduleNotFound(scopedError).message).toEqual('Module not found @scope/package')
 })
