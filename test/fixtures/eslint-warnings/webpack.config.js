@@ -1,4 +1,5 @@
 const FriendlyErrorsWebpackPlugin = require('../../../index');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -9,19 +10,14 @@ module.exports = {
   },
   plugins: [
     new FriendlyErrorsWebpackPlugin(),
-
+    new ESLintPlugin({
+      context: __dirname,
+      files: ['**/*.js'],
+      overrideConfigFile: __dirname + '/eslint.config.js',
+    }),
   ],
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        enforce: 'pre',
-        include: __dirname,
-        options: {
-          ignore: false
-        }
-      },
       {
         test: /\.jsx?$/,
         loader: 'babel-loader',
