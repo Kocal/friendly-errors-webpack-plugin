@@ -1,6 +1,6 @@
 'use strict'
 
-const chalk = require('chalk')
+const pc = require('picocolors')
 
 const colors = {
   success: 'green',
@@ -18,25 +18,39 @@ const titles = {
   error: 'error'
 }
 
+const bgColorFns = {
+  green: pc.bgGreen,
+  blue: pc.bgBlue,
+  white: pc.bgWhite,
+  yellow: pc.bgYellow,
+  red: pc.bgRed
+}
+
+const textColorFns = {
+  green: pc.green,
+  blue: pc.blue,
+  white: pc.white,
+  yellow: pc.yellow,
+  red: pc.red
+}
+
 function bgColor (level) {
   const color = textColor(level)
-  return 'bg' + capitalizeFirstLetter(color)
+  return bgColorFns[color] || pc.bgRed
 }
 
 function textColor (level) {
   return colors[level.toLowerCase()] || 'red'
 }
 
-function capitalizeFirstLetter (string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
-}
-
 function formatTitle (severity, title) {
-  return chalk[bgColor(severity)].black('', title, '')
+  const bgFn = bgColor(severity)
+  return bgFn(pc.black(` ${title} `))
 }
 
 function formatText (severity, message) {
-  return chalk[textColor(severity)](message)
+  const colorFn = textColorFns[textColor(severity)] || pc.red
+  return colorFn(message)
 }
 
 function clearConsole () {
