@@ -1,5 +1,5 @@
 {
-  "name": "@nuxt/friendly-errors-webpack-plugin",
+  "name": "@kocal/friendly-errors-webpack-plugin",
   "publishConfig": {
     "access": "public"
   },
@@ -21,12 +21,18 @@
     "plugin"
   ],
   "author": "Geoffroy Warin",
+  "maintainers": [
+    {
+      "name": "Hugo Alliaume",
+      "email": "hugo@alliau.me"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nuxt/friendly-errors-webpack-plugin.git"
+    "url": "git+https://github.com/kocal/friendly-errors-webpack-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/nuxt/friendly-errors-webpack-plugin/issues"
+    "url": "https://github.com/kocal/friendly-errors-webpack-plugin/issues"
   },
   "license": "MIT",
   "peerDependencies": {

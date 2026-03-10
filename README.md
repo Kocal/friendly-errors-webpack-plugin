@@ -1,8 +1,12 @@
 # Friendly-errors-webpack-plugin
 
-[![npm](https://img.shields.io/npm/v/@nuxtjs/friendly-errors-webpack-plugin.svg)](https://www.npmjs.com/package/@nuxtjs/friendly-errors-webpack-plugin)
-[![Build Status](https://travis-ci.org/nuxt/friendly-errors-webpack-plugin.svg?branch=master)](https://travis-ci.org/nuxt/friendly-errors-webpack-plugin)
-[![Build status](https://ci.appveyor.com/api/projects/status/hqi9g8u2e17epr2d?svg=true)](https://ci.appveyor.com/project/nuxt/friendly-errors-webpack-plugin/branch/master)
+> [!NOTE]
+> This repository is a fork of [@nuxt/friendly-errors-webpack-plugin](https://github.com/nuxt/friendly-errors-webpack-plugin), which is no longer maintained. 
+> The goal of this fork is to continue the maintenance of the plugin, ensuring it remains up-to-date and compatible with the latest versions of Webpack and related tools.
+
+[![npm](https://img.shields.io/npm/v/@kocal/friendly-errors-webpack-plugin.svg)](https://www.npmjs.com/package/@kocal/friendly-errors-webpack-plugin)
+[![Build Status](https://travis-ci.org/kocal/friendly-errors-webpack-plugin.svg?branch=master)](https://travis-ci.org/kocal/friendly-errors-webpack-plugin)
+[![Build status](https://ci.appveyor.com/api/projects/status/hqi9g8u2e17epr2d?svg=true)](https://ci.appveyor.com/project/kocal/friendly-errors-webpack-plugin/branch/master)
 
 Friendly-errors-webpack-plugin recognizes certain classes of webpack
 errors and cleans, aggregates and prioritizes them to provide a better
@@ -16,7 +20,7 @@ errors get handled, please open a [PR](https://help.github.com/articles/creating
 ### Installation
 
 ```bash
-npm install @nuxt/friendly-errors-webpack-plugin --save-dev
+npm install @kocal/friendly-errors-webpack-plugin --save-dev
 ```
 
 ### Basic usage
@@ -24,7 +28,7 @@ npm install @nuxt/friendly-errors-webpack-plugin --save-dev
 Simply add `FriendlyErrorsWebpackPlugin` to the plugin section in your Webpack config.
 
 ```javascript
-var FriendlyErrorsWebpackPlugin = require('@nuxt/friendly-errors-webpack-plugin');
+var FriendlyErrorsWebpackPlugin = require('@kocal/friendly-errors-webpack-plugin');
 
 var webpackConfig = {
   // ...
@@ -131,7 +135,7 @@ The plugin has no native support for desktop notifications but it is easy
 to add them thanks to [node-notifier](https://www.npmjs.com/package/node-notifier) for instance.
 
 ```js
-var NotifierPlugin = require('@nuxt/friendly-errors-webpack-plugin');
+var NotifierPlugin = require('@kocal/friendly-errors-webpack-plugin');
 var notifier = require('node-notifier');
 var ICON = path.join(__dirname, 'icon.png');
 
@@ -158,15 +162,15 @@ new NotifierPlugin({
 
 Webpack's errors processing, is done in four phases:
 
-1. Extract relevant info from webpack errors. This is done by the plugin [here](https://github.com/nuxt/friendly-errors-webpack-plugin/blob/master/src/core/extractWebpackError.js)
+1. Extract relevant info from webpack errors. This is done by the plugin [here](https://github.com/kocal/friendly-errors-webpack-plugin/blob/master/src/core/extractWebpackError.js)
 2. Apply transformers to all errors to identify and annotate well know errors and give them a priority
 3. Get only top priority error or top priority warnings if no errors are thrown
 4. Apply formatters to all annotated errors
 
-You can add transformers and formatters. Please see [transformErrors](https://github.com/nuxt/friendly-errors-webpack-plugin/blob/master/src/core/transformErrors.js),
-and [formatErrors](https://github.com/nuxt/friendly-errors-webpack-plugin/blob/master/src/core/formatErrors.js)
-in the source code and take a look a the [default transformers](https://github.com/nuxt/friendly-errors-webpack-plugin/tree/master/src/transformers)
-and the [default formatters](https://github.com/nuxt/friendly-errors-webpack-plugin/tree/master/src/formatters).
+You can add transformers and formatters. Please see [transformErrors](https://github.com/kocal/friendly-errors-webpack-plugin/blob/master/src/core/transformErrors.js),
+and [formatErrors](https://github.com/kocal/friendly-errors-webpack-plugin/blob/master/src/core/formatErrors.js)
+in the source code and take a look a the [default transformers](https://github.com/kocal/friendly-errors-webpack-plugin/tree/master/src/transformers)
+and the [default formatters](https://github.com/kocal/friendly-errors-webpack-plugin/tree/master/src/formatters).
 
 ### Customize Reporters
 
@@ -175,4 +179,4 @@ Reporter is a class for generating output of errors messages, structure is:
 1. Include following levels log methods: `success`, `info`, `note`, `warn`, `error`.
 1. Include method `clearConsole` for clearing the terminal console.
 
-You can take a look at source code as example [base reporter](https://github.com/nuxt/friendly-errors-webpack-plugin/blob/master/src/reporters/base.js)
+You can take a look at source code as example [base reporter](https://github.com/kocal/friendly-errors-webpack-plugin/blob/master/src/reporters/base.js)
