@@ -5,8 +5,7 @@
 > The goal of this fork is to continue the maintenance of the plugin, ensuring it remains up-to-date and compatible with the latest versions of Webpack and related tools.
 
 [![npm](https://img.shields.io/npm/v/@kocal/friendly-errors-webpack-plugin.svg)](https://www.npmjs.com/package/@kocal/friendly-errors-webpack-plugin)
-[![Build Status](https://travis-ci.org/kocal/friendly-errors-webpack-plugin.svg?branch=master)](https://travis-ci.org/kocal/friendly-errors-webpack-plugin)
-[![Build status](https://ci.appveyor.com/api/projects/status/hqi9g8u2e17epr2d?svg=true)](https://ci.appveyor.com/project/kocal/friendly-errors-webpack-plugin/branch/master)
+[![CI](https://github.com/Kocal/friendly-errors-webpack-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/Kocal/friendly-errors-webpack-plugin/actions/workflows/ci.yml)
 
 Friendly-errors-webpack-plugin recognizes certain classes of webpack
 errors and cleans, aggregates and prioritizes them to provide a better
