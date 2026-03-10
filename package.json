@@ -9,8 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "eslint . && cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "release": "standard-version"
+    "test": "eslint . && cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "files": [
     "src",
@@ -52,7 +51,6 @@
     "globals": "^16.0.0",
     "jest": "^29.7.0",
     "memfs": "^4.17.0",
-    "standard-version": "^4.4.0",
     "strip-ansi": "^5.2.0",
     "webpack": "^5.105.0"
   },
