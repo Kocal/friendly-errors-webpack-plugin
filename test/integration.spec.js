@@ -62,7 +62,13 @@ function filename (filePath) {
 it('integration : should display eslint warnings', async () => {
   const logs = await executeAndGetLogs('./fixtures/eslint-warnings/webpack.config.js')
 
-  expect(logs.join('\n')).toEqual(
+  // Normalize paths to handle different package managers (npm, yarn, pnpm)
+  const normalizedLogs = logs.join('\n').replace(
+    /\.\/node_modules\/(?:\.pnpm\/[^/]+\/node_modules\/)?eslint-loader\/index\.js/g,
+    './node_modules/eslint-loader/index.js'
+  )
+
+  expect(normalizedLogs).toEqual(
     `WARN  Compiled with 2 warnings
 
 Module Warning (from ./node_modules/eslint-loader/index.js):
